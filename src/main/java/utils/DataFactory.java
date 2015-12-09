@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class dataFactory {
+public class DataFactory {
     public static Collection<String[]> getTestData(String fileName) throws IOException {
         List<String[]> records = new ArrayList<String[]>();
         String record;
