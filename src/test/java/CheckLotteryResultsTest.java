@@ -4,9 +4,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
-import utils.dataFactory;
+import utils.DataFactory;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -15,7 +15,7 @@ import java.util.Collection;
 import static org.junit.Assert.assertFalse;
 
 @RunWith(value = Parameterized.class)
-public class CheckLotteryResultsTest extends dataFactory {
+public class CheckLotteryResultsTest extends DataFactory {
 
     private WebDriver driver;
     private static final String BASE_URL = "https://loteriaparagonowa.gov.pl/wyniki";
@@ -34,9 +34,11 @@ public class CheckLotteryResultsTest extends dataFactory {
 
     @Before
     public void startBrowser() throws MalformedURLException {
-        driver = new FirefoxDriver();
-        driver.get(BASE_URL);
+        System.setProperty("webdriver.chrome.driver", "chrome/chromedriver");
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.get(BASE_URL);
+
     }
 
     //TODO: write numbers from "Add" to file and use those data for look-up

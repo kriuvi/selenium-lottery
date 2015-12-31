@@ -1,5 +1,5 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
 
 import org.junit.*;
@@ -7,7 +7,7 @@ import org.junit.runner.*;
 import org.junit.runners.Parameterized.Parameters;
 import org.junit.runners.*;
 import pages.MainPage;
-import utils.dataFactory;
+import utils.DataFactory;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -16,7 +16,7 @@ import java.util.Collection;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(value = Parameterized.class)
-public class AddReceiptsTest extends dataFactory {
+public class AddReceiptsTest extends DataFactory {
     private static WebDriver driver;
 
     private final String BASE_URL = "https://loteriaparagonowa.gov.pl/";
@@ -45,7 +45,8 @@ public class AddReceiptsTest extends dataFactory {
 
     @Before
     public void startBrowser() throws MalformedURLException {
-        driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver", "chrome/chromedriver");
+        driver = new ChromeDriver();
         driver.get(BASE_URL);
         driver.manage().window().maximize();
     }
@@ -60,7 +61,8 @@ public class AddReceiptsTest extends dataFactory {
         Boolean send = true;
 
         MainPage mainPage = new MainPage(driver);
-        MainPage nextPage = mainPage.goToLogin()
+        MainPage nextPage = mainPage.closeCooki()
+                .goToLogin()
                 .login(email, password);
 
         Thread.sleep(2000);

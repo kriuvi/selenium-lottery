@@ -85,6 +85,8 @@ public class MainPage extends AbstractPage {
 
     @FindBy(css = "button[type=submit]")
     private WebElement sendButton;
+    @FindBy(xpath = "//div[2]/div/div[7]/div")
+    private WebElement cookiButton;
 
     public MainPage(WebDriver driver) {
         super(driver);
@@ -158,5 +160,10 @@ public class MainPage extends AbstractPage {
     public LoginPage goToLogin() {
         this.click(loginLink);
         return new LoginPage(getDriver());
+    }
+
+    public MainPage closeCooki() {
+        this.click(cookiButton);
+        return this;
     }
 }
