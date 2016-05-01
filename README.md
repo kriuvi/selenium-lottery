@@ -1,4 +1,3 @@
 # selenium-lottery
-This project is written in Selenium using page-object pattern and JUnit.
-It helps me take a part in a lottery. Polish government conducts lottery, where anyone who is purchasing things in Poland can win iPad, Lenovo laptop or even a car.
-
+This project is written in Java for Selenium WebDriver using Page-Object Pattern and JUnit.
+It helped me take a part in a lottery. Polish government conducted lottery, where anyone who has purchased things in Poland may win some valuable prizes.
